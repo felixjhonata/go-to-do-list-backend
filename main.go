@@ -27,6 +27,9 @@ func main() {
 	router := gin.Default()
 
 	router.GET("/api/to-do-list", todolist.GetToDoList(pool))
+	router.POST("/api/to-do-list", todolist.AddToDoItem(pool))
+	router.PUT("/api/to-do-list/:id", todolist.UpdateToDoItem(pool))
+	router.DELETE("/api/to-do-list/:id", todolist.DeleteToDoItem(pool))
 
 	router.Run("localhost:8080")
 }
